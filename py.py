@@ -36,10 +36,18 @@ IMAGEM_MOEDA = carregar_imagem("imgs/coin.png", (30, 30))
 imagem_meteoro_atual = IMAGEM_METEORO_BASE
 
 try:
+    pygame.mixer.music.load("sons/Crossing the Universe.mp3")
+    pygame.mixer.music.set_volume(0.1)
+    pygame.mixer.music.play(-1)
+except:
+    print("Aviso: Trilha sonora não encontrada.")
+
+try:
     som_moeda = pygame.mixer.Sound("sons/super-mario-coin-sound.mp3")
     som_moeda.set_volume(0.25)
     som_derrota = pygame.mixer.Sound("sons/your_team_lost.mp3") 
     som_derrota.set_volume(0.3)
+    
 except:
     som_moeda = None
     som_derrota = None
